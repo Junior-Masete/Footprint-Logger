@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add activities</title>
+    <link rel="stylesheet" href="css/index.css" >
 </head>
 <body>
-    
+    <header class="outer-container">
+        <div class="nav-bar">
+            <h1 class="footprint-heading">FootPrint.</h1>
+            <div class="nav">
+                <ul>
+                <li><a href="login.html">Log Out</a></li>
+            </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="add-activities-container">
+        <div class="add-section">
+            <h1>Add activities</h1>
+            <p>Log activities you have done today to see estimated amount of Carbon Dioxide released:</p>
+            <input type="text" id="activity" name="activity">
+
+            <select name="categories" id="categories">
+            <option value="dietary">Dietary</option>
+            <option value="Digital">Digital use</option>
+            <option value="water">Water use</option>
+            <option value="transportation">Transportation</option>
+            <option value="electricity">Electricity</option>
+            <option value="waste" selected>Waste</option>
+            </select>
+            <a href="" class="add-btn btns">Add</a>
+
+            <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Car">
+            <label for="vehicle1">Car travel</label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2">Meat consumption</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3">Digital Use</label><br> 
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3">Electricity Use</label><br> 
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3">Water Use</label><br> 
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3">Waste management</label><br>  -->
+        </div>
+        <div class="piechart-section">
+            <img src="assets/e006594e-9b22-45f6-a1ac-83b84143f080.png" width="300" alt="pie">
+        </div>
+        </div>
+    </main>  
 </body>
 </html>
