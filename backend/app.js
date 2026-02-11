@@ -1,12 +1,24 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const authRoutes = require('./routes/authRoute.js');
 const cors = require("cors");
 require("dotenv").config();
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// app.use("*",cors());
 
 const mongoURI = process.env.MONGO_URI;
+
+
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+
+
+app.use('/api/auth', authRoutes);
+
 
 
 mongoose.
@@ -19,4 +31,6 @@ then(() => {
     
 }).catch((error) => {
     console.log(error);
-})
+});
+
+
