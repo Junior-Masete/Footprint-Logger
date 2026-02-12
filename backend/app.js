@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require('./routes/authRoute.js');
+const activitiesRoutes = require('./routes/activities.js')
 const cors = require("cors");
 require("dotenv").config();
 const app = express();
@@ -18,6 +19,8 @@ app.get("/", (req, res) => {
 
 
 app.use('/api/auth', authRoutes);
+
+app.use('/api/activities', activitiesRoutes);
 
 
 

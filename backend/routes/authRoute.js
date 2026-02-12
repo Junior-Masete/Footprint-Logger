@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
 const User = require('../models/user');
+const Activities = require('../models/activities');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 dotenv.config();
@@ -38,6 +39,11 @@ router.post('/register', async (req, res) => {
         });
 
         await user.save();
+
+        await Activities.create({
+        user: user._id,
+        userActivities: [],
+        });
 
         res.status(201).json({
             success: true,
