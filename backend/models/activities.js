@@ -8,6 +8,7 @@ const activitiesSchema = new mongoose.Schema({
     },
     userActivities: [{
         title: String,
+        catValue: Number,
         category: String,
         createdAt: { type: Date, default: Date.now }
         }]
