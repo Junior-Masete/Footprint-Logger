@@ -58,7 +58,7 @@ async function handleSubmit(e){
     if(!isValid) return;
 
     try{
-        const response = await fetch("http://localhost:3000/api/auth/register", {
+        const response = await fetch("https://footprint-logger-1-qydz.onrender.com/api/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
