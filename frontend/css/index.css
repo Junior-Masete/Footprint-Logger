@@ -93,6 +93,11 @@ ul li a {
     justify-content: center; */
 }
 
+.profile-details {
+    margin-top: 50px;
+    padding-left: 20px;
+}
+
 .add-section{
     max-width: 500px;
 }
@@ -103,8 +108,8 @@ ul li a {
     align-items: center;
 }
 
-.piechart-section img{
-    padding-top: 150px;
+.piechart-section h1{
+    padding-top: 40px;
 }
 
 #activity, #categories, .formdiv input{
@@ -141,4 +146,8 @@ ul li a {
 
 .sign-header {
     margin-bottom: 30px;
+}
+
+button:hover {
+    cursor: pointer;
 }
