@@ -9,7 +9,9 @@ const path=require("path");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: "*",
+}));
 
 const mongoURI = process.env.MONGO_URI;
 
@@ -27,14 +29,16 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 
 app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"))
-})
+});
+
+const PORT = process.env.PORT || 3000
 
 mongoose.
 connect(mongoURI).
 then(() => {
     console.log("Connected to MongoDB")
-    app.listen(3000, () => {
-        console.log("API is running on Port: 3000")
+    app.listen(PORT, () => {
+        console.log("API is running on Port: " + PORT)
     })
     
 }).catch((error) => {
