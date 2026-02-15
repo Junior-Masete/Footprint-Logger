@@ -32,7 +32,7 @@ addBtn.addEventListener("click", async function (e) {
 
     try{
 
-         const response = await fetch("http://localhost:3000/api/activities/add-activity", {
+         const response = await fetch("https://footprint-logger-1-qydz.onrender.com/api/activities/add-activity", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -71,7 +71,7 @@ async function loadWeeklyChart(){
 
     try{
 
-        const response = await fetch("http://localhost:3000/api/activities/weekly", {
+        const response = await fetch("https://footprint-logger-1-qydz.onrender.com/api/activities/weekly", {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
