@@ -10,6 +10,7 @@ dotenv.config();
 const jwtKey = process.env.JWT_SECRET;
 
 router.post('/register', async (req, res) => {
+    console.log(req.body);
     try{
         const {name, surname, email, password} = req.body;
 
@@ -62,6 +63,8 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     try{
         const {email, password} = req.body;
+
+        // console.log(req.body);
 
         if(!email || !password){
             return res.status(400).json({
