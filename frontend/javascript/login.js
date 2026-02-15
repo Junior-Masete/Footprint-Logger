@@ -4,19 +4,27 @@ const password = document.querySelector('#password');
 
 form.removeEventListener('submit', handleSubmit);
 
-function handleSubmit(e){
+async function handleSubmit(e){
+    e.preventDefault();
+
+    console.log("Email " + email.value.trim())
+    console.log("Password " + password.value.trim())
+
     const errorElements = form.querySelectorAll('#thename, #thesurname, #themail, #thepass');
     errorElements.forEach(function(element) {
         element.style.color = "";
         element.textContent = "";
     });
 
+    let isValid = true;
+
     if(!validateEmail(email)){
         const error = form.querySelector('#themail');
         error.style.color = "red";
         error.textContent = "Enter valid email"
 
-        e.preventDefault();
+        // e.preventDefault();
+        isValid = false;
     }
 
 
@@ -25,9 +33,42 @@ function handleSubmit(e){
         error.style.color = "red";
         error.textContent = "Password should be 8-15, atleast 1 lowercase letter, 1 uppercase and 1 special character";
 
-        e.preventDefault();
+        // e.preventDefault();
+        isValid = false;
     }
 
+    if(!isValid) return;
+
+
+    ///////////////////////
+    try{
+        const response = await fetch("http://localhost:3000/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email.value.trim(),
+                password: password.value.trim()
+            })
+        });
+
+        const data = await response.json();
+
+        if(!response.ok){
+            throw new Error(data.message || "Login failed");
+        }
+
+        localStorage.setItem("token", data.token);
+
+        window.location.href = "/add_activity.html";
+
+    }
+    catch(error){
+        const errorBox = form.querySelector('#themail'); // or general error container
+        errorBox.style.color = "red";
+        errorBox.textContent = error.message;
+    }
 
 };
 
